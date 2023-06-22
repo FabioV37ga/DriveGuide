@@ -36,6 +36,26 @@
     width: 550px;
 }
 
+@font-face {
+    font-family: pixel;
+    src: url(../asset/system.ttf);
+}
+
+.texto-escrita{
+    font-family: pixel;
+    position: absolute;
+    top: 60px;
+    font-size: 15.5px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    right: 31px;
+    /* background: purple; */
+    height: 188px;
+    width: 487px;
+    text-align: justify;
+}
+
 .botao {
     display: none;
     z-index: 2;
