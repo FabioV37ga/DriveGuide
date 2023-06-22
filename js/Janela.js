@@ -1,6 +1,7 @@
 class Janela {
     static index = 0;
     static conteudo = document.querySelector(".janela-conteudo")
+    
     static aparecer() {
         this.conteudo.addEventListener("animationend", () => {
             this.index++
