@@ -1,0 +1,1 @@
+document.querySelector(".iniciar").addEventListener("click", Jogo.iniciar)

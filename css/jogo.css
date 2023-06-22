@@ -1,0 +1,37 @@
+.conteudo-jogo{
+    display: none;
+}
+
+.personagem{
+    position: absolute;
+    left: -335px;
+    bottom: -45px;
+}
+
+.personagem img{
+    width: 400px
+}
+
+.texto{
+    display: none;
+    top: 0;
+    z-index: 1;
+    position: absolute;
+    left: 225px;
+}
+
+.texto img{
+    width: 550px;
+}
+
+.botao{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 220px;
+    right: 12px;
+}
+
+.botao img{
+    width: 150px
+}

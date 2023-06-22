@@ -1,6 +1,6 @@
 @font-face {
     font-family: retro;
-    src: url("../retro-thing.ttf");
+    src: url("../asset/retro-thing.ttf");
 }
 
 * {
@@ -22,19 +22,21 @@ body {
     border-radius: 13px;
     display: flex;
     justify-content: center;
-    background-image: url("../lab.png");
+    background-image: url("../asset/lab.png");
     background-size: cover;
 }
 
 .janela-conteudo {
+    position: relative;
     background: rgba(0, 0, 0, 1);
-    border-radius: 12px;
+    border-radius: 7px;
     display: block;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .janela-conteudo .inicio {
@@ -45,20 +47,69 @@ body {
     font-family: retro;
 }
 
+.inicio-desaparece{
+    animation: desapareceInicio 1s ease-in;
+}
+
+@keyframes desapareceInicio {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
 .inicio a {
+    position: absolute;
+    margin-top: 240px;
     color: white;
     text-decoration: none;
     font-size: 35px;
     /* color: rgb(11, 129, 214); */
 }
 
+.inicio a:hover {
+    color: rgb(212, 212, 212);
+    font-size: 37px;
+    transition: .4s;
+}
+
 .janela-conteudo .inicio img {
     width: 170px
 }
 
-span{
+span {
     color: rgba(255, 255, 255, 0.656);
     margin-bottom: 40px;
     text-align: center;
     font-size: 13px;
+}
+
+.janela-aparece {
+    animation: apareceJanela 1.2s ease-in;
+}
+
+@keyframes apareceJanela {
+    0% {
+        border: 5px solid rgba(211, 211, 211, 0%);
+    }
+
+    100% {
+        border: 5px solid rgba(211, 211, 211, 100%);
+    }
+}
+
+.fundo-aparece {
+    animation: apareceFundo 1.2s ease-in;
+}
+
+@keyframes apareceFundo {
+    0% {
+        background: rgba(0, 0, 0, 100%)
+    }
+
+    100% {
+        background: rgba(0, 0, 0, 0%)
+    }
 }

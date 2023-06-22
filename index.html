@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DriveGuide</title>
-    <link rel="preload" href="drive-guide-logo.png" as="image">
+    <link rel="preload" href="asset/drive-guide-logo.png" as="image">
+    <link rel="preload" href="asset/char_parado.png" as="image">
+    <link rel="preload" href="asset/char_falando.png" as="image">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/jogo.css">
 </head>
 <body>
     <main>
         <section class="janela">
             <section class="janela-conteudo">
                 <section class="inicio">
-                    <img src="drive-guide-logo.png" alt="">
+                    <img src="asset/drive-guide-logo.png" alt="">
                     <span>Por <br> Fabio Veiga e Lucas Ota</span>
-                    <a href="#">INICIAR</a>
+                    <a href="#" class="iniciar">INICIAR</a>
+                </section>
+                <section class="conteudo-jogo">
+                    <div class="botao">
+                        <a href="#">
+                            <img src="asset/continuar_texto.png" alt="">
+                        </a>
+                    </div>
+                    <div class="texto">
+                        <img src="asset/balao_texto.png" alt="">
+                    </div>
+                    <div class="personagem">
+                        <img src="asset/char_parado.png" alt="" srcset="">
+                    </div>
                 </section>
             </section>
         </section>
@@ -22,5 +38,12 @@
     <footer>
         
     </footer>
+    <script src="js/Personagem.js"></script>
+    <script src="js/Inicio.js"></script>
+    <script src="js/Janela.js"></script>
+    <script src="js/Jogo.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Personagem: -335px → -50px -->
 </body>
 </html>
