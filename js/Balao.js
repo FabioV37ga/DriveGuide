@@ -21,17 +21,24 @@ class Balao {
     static digitar(fala) {
         var texto = JSON.parse(this.falas).textos[fala].texto
         var textoImpresso = "";
+        this.paragrafo.textContent = textoImpresso;
 
+        var audio = new Audio("asset/dialog.wav")
+        audio.volume = 0.25
+        audio.play()
+        
         var contador = 0;
         var intervalo = setInterval(() => {
+            audio.paused == false ? audio.play() : null;
             textoImpresso += texto.split("")[contador]
             contador++
-            if(contador == texto.split("").length){
+            if (contador == texto.split("").length) {
                 clearInterval(intervalo)
                 Personagem.expressar(1)
+                audio.pause()
             }
+
             this.paragrafo.textContent = textoImpresso;
         }, 20);
-        
     }
 }
