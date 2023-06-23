@@ -3,6 +3,7 @@ class Balao {
     static paragrafo = document.querySelector(".texto-escrita")
     static botao = document.querySelector(".botao")
     static yesno = document.querySelector(".yesno-botoes")
+    static direct = document.querySelector(".link")
     static falas =
         `{
         "textos": [
@@ -153,9 +154,17 @@ class Balao {
                 Personagem.expressar(1)
                 audio.pause()
                 this.continuar("liberar")
+                switch(fala){
+                    case "6":
+                            Balao.direciona("yes")
+                        break
+                    case "7":
+                            Balao.direciona("no")
+                        break
+                }
             }
             this.paragrafo.textContent = textoImpresso;
-        }, 2);
+        }, 20);
     }
 
     static continuar(etapa) {
@@ -165,6 +174,7 @@ class Balao {
                 this.botao.style.display = "initial"
                 this.botao.addEventListener("click", handle)
                 function handle() {
+                    Balao.direciona("apaga")
                     Balao.botao.style.display = "none"
                     Personagem.falaAtual++
                     Balao.digitar(Personagem.falaAtual)
@@ -179,6 +189,7 @@ class Balao {
                     Balao.yesno.children[0].removeEventListener("click", handleYes)
                     Balao.yesno.style.display = "none"
                     Balao.digitar("6")
+
                 }
                 function handleNo() {
                     Balao.yesno.children[1].removeEventListener("click", handleNo)
@@ -188,7 +199,24 @@ class Balao {
                 }
                 Personagem.falaAtual = "7"
             }
-        }, 100);
+        }, 800);
+    }
 
+    static direciona(tipo) {
+        switch (tipo) {
+            case "yes":
+                this.direct.href = "https://drive.google.com/drive/u/0/my-drive"
+                this.direct.style.display = "initial"
+                this.direct.style.right = "307px"
+                break;
+            case "no":
+                this.direct.href = "https://accounts.google.com/signup"
+                this.direct.style.right = "214px"
+                this.direct.style.display = "initial"
+                break;
+            case "apaga":
+                this.direct.style.display = "none"
+                break;
+        }
     }
 }

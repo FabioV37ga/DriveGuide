@@ -93,3 +93,16 @@
 .yesno img{
     width: 130px
 }
+
+.link{
+    position: absolute;
+    display: none;
+    right: 214px;
+    font-family: 'pixel';
+    z-index: 2;
+    color: blue;
+    font-weight: 900;
+    text-decoration: none;
+    top: 146px;
+    animation: botaoAparece .5s ease;
+}
