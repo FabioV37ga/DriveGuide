@@ -1,5 +1,5 @@
 class Jogo{
-
+    static ending = document.querySelector(".close")
     static iniciar(){
         Inicio.desaparecer()
 
@@ -7,5 +7,9 @@ class Jogo{
         window.trilha.volume = 0.07
         window.trilha.play()
         window.trilha.loop = true
+    }
+
+    static finalizar(){
+        this.ending.style.display = "flex"
     }
 }

@@ -135,37 +135,41 @@ class Balao {
     }
 
     static digitar(fala) {
-        var texto = JSON.parse(this.falas).textos[fala].texto
-        var textoImpresso = "";
-        this.paragrafo.textContent = textoImpresso;
-
-        var audio = new Audio("asset/dialog.wav")
-        audio.volume = 0.25
-        audio.play()
-        audio.loop = true
-
-        var contador = 0;
-        Personagem.expressar(0)
-        var intervalo = setInterval(() => {
-            audio.paused == true ? audio.play() : null;
-            textoImpresso += texto.split("")[contador]
-            contador++
-            if (contador == texto.split("").length) {
-                clearInterval(intervalo)
-                Personagem.expressar(1)
-                audio.pause()
-                this.continuar("liberar")
-                switch(fala){
-                    case "6":
-                            Balao.direciona("yes")
-                        break
-                    case "7":
-                            Balao.direciona("no")
-                        break
-                }
-            }
+        if (fala <= 29) {
+            var texto = JSON.parse(this.falas).textos[fala].texto
+            var textoImpresso = "";
             this.paragrafo.textContent = textoImpresso;
-        }, 20);
+
+            var audio = new Audio("asset/dialog.wav")
+            audio.volume = 0.25
+            audio.play()
+            audio.loop = true
+
+            var contador = 0;
+            Personagem.expressar(0)
+            var intervalo = setInterval(() => {
+                audio.paused == true ? audio.play() : null;
+                textoImpresso += texto.split("")[contador]
+                contador++
+                if (contador == texto.split("").length) {
+                    clearInterval(intervalo)
+                    Personagem.expressar(1)
+                    audio.pause()
+                    this.continuar("liberar")
+                    switch (fala) {
+                        case "6":
+                            Balao.direciona("yes")
+                            break
+                        case "7":
+                            Balao.direciona("no")
+                            break
+                    }
+                }
+                this.paragrafo.textContent = textoImpresso;
+            }, 2);
+        }else{
+            Jogo.finalizar()
+        }
     }
 
     static continuar(etapa) {
@@ -200,7 +204,7 @@ class Balao {
                 }
                 Personagem.falaAtual = "7"
             }
-        }, 800);
+        }, 100);
     }
 
     static direciona(tipo) {
