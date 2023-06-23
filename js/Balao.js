@@ -141,6 +141,7 @@ class Balao {
         audio.play()
 
         var contador = 0;
+        Personagem.expressar(0)
         var intervalo = setInterval(() => {
             audio.paused == false ? audio.play() : null;
             textoImpresso += texto.split("")[contador]
