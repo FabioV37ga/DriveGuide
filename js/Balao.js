@@ -142,11 +142,12 @@ class Balao {
         var audio = new Audio("asset/dialog.wav")
         audio.volume = 0.25
         audio.play()
+        audio.loop = true
 
         var contador = 0;
         Personagem.expressar(0)
         var intervalo = setInterval(() => {
-            audio.paused == false ? audio.play() : null;
+            audio.paused == true ? audio.play() : null;
             textoImpresso += texto.split("")[contador]
             contador++
             if (contador == texto.split("").length) {
