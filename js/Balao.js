@@ -1,8 +1,10 @@
 class Balao {
     static balao = document.querySelector(".texto")
     static paragrafo = document.querySelector(".texto-escrita")
+    static botao = document.querySelector(".botao")
+    static yesno = document.querySelector(".yesno-botoes")
     static falas =
-    `{
+        `{
         "textos": [
             {
                 "indice": "0",
@@ -150,9 +152,43 @@ class Balao {
                 clearInterval(intervalo)
                 Personagem.expressar(1)
                 audio.pause()
+                this.continuar("liberar")
             }
-
             this.paragrafo.textContent = textoImpresso;
-        }, 20);
+        }, 2);
+    }
+
+    static continuar(etapa) {
+
+        var timeout = setTimeout(() => {
+            if (Personagem.falaAtual != 5) {
+                this.botao.style.display = "initial"
+                this.botao.addEventListener("click", handle)
+                function handle() {
+                    Balao.botao.style.display = "none"
+                    Personagem.falaAtual++
+                    Balao.digitar(Personagem.falaAtual)
+                    Balao.botao.removeEventListener("click", handle)
+                }
+            } else {
+                Balao.yesno.style.display = "initial"
+                Balao.yesno.children[0].addEventListener("click", handleYes)
+                Balao.yesno.children[1].addEventListener("click", handleNo)
+
+                function handleYes() {
+                    Balao.yesno.children[0].removeEventListener("click", handleYes)
+                    Balao.yesno.style.display = "none"
+                    Balao.digitar("6")
+                }
+                function handleNo() {
+                    Balao.yesno.children[1].removeEventListener("click", handleNo)
+                    Balao.yesno.style.display = "none"
+                    Balao.digitar("7")
+
+                }
+                Personagem.falaAtual = "7"
+            }
+        }, 100);
+
     }
 }

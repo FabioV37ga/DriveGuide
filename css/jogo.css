@@ -67,3 +67,29 @@
 .botao img {
     width: 150px
 }
+
+.botao{
+    animation: botaoAparece .3s ease
+}
+
+@keyframes botaoAparece {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+.yesno-botoes{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 178px;
+    animation: botaoAparece .3s ease;
+}
+
+.yesno img{
+    width: 130px
+}

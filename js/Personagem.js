@@ -1,5 +1,6 @@
 class Personagem {
     static personagem = document.querySelector(".personagem")
+    static falaAtual = 0;
 
     static aparecer() {
         this.personagem.parentElement.style.display = "initial"
