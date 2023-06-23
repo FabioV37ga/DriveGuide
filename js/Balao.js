@@ -28,6 +28,7 @@ class Balao {
             contador++
             if(contador == texto.split("").length){
                 clearInterval(intervalo)
+                Personagem.expressar(1)
             }
             this.paragrafo.textContent = textoImpresso;
         }, 20);
