@@ -166,7 +166,7 @@ class Balao {
                     }
                 }
                 this.paragrafo.textContent = textoImpresso;
-            }, 2);
+            }, 20);
         }else{
             Jogo.finalizar()
         }
@@ -204,7 +204,7 @@ class Balao {
                 }
                 Personagem.falaAtual = "7"
             }
-        }, 100);
+        }, 800);
     }
 
     static direciona(tipo) {
